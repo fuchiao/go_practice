@@ -23,6 +23,7 @@ func TestSaveDeck(t *testing.T) {
 	if os.IsNotExist(err) {
 		t.Errorf("%s should exists", testFile)
 	}
+	os.Remove(testFile)
 }
 
 func TestNewDeckFromFile(t *testing.T) {
@@ -37,4 +38,5 @@ func TestNewDeckFromFile(t *testing.T) {
 	if len(loadedDeck) != expectedLen {
 		t.Errorf("expected deck length is %d, but got %d", expectedLen, len(loadedDeck))
 	}
+	os.Remove(testFile)
 }
