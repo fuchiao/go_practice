@@ -32,7 +32,7 @@ func (d deck) saveToFile(filename string) {
 	}
 }
 
-func NewDeckFromFile(filename string) deck {
+func newDeckFromFile(filename string) deck {
 	content, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Error: failed to read file", filename)

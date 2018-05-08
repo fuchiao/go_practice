@@ -33,7 +33,7 @@ func TestNewDeckFromFile(t *testing.T) {
 	d := newDeck()
 	d.saveToFile(testFile)
 
-	loadedDeck := NewDeckFromFile(testFile)
+	loadedDeck := newDeckFromFile(testFile)
 	expectedLen := 16
 	if len(loadedDeck) != expectedLen {
 		t.Errorf("expected deck length is %d, but got %d", expectedLen, len(loadedDeck))
