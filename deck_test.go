@@ -1,8 +1,11 @@
 package main
 
 import (
+	"github.com/google/go-cmp/cmp"
+	"math/rand"
 	"os"
 	"testing"
+	"time"
 )
 
 func TestNewDeck(t *testing.T) {
@@ -50,5 +53,19 @@ func TestDeal(t *testing.T) {
 	}
 	if len(d2) != len(d)-5 {
 		t.Errorf("expected deck2 length is %d, but got %d", len(d)-expectedLen, len(d2))
+	}
+}
+
+func TestShuffle(t *testing.T) {
+	rand.Seed(time.Now().UnixNano())
+	d1 := newDeck()
+	d2 := newDeck()
+	d1.shuffle()
+	// d2.shuffle()
+	if cmp.Equal(d1, d2) {
+		// don't use reflect.DeepEqual()
+		// reflect.DeepEqual() compares targets by ==
+		// cmp.Equal() compares targets by Equal()
+		t.Errorf("Error: failed to shuffle")
 	}
 }
