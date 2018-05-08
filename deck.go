@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
+
 type deck []string
 
 func newDeck() deck {
@@ -13,4 +19,15 @@ func newDeck() deck {
 		}
 	}
 	return d
+}
+
+func (d deck) toString() string {
+	return strings.Join(d, ",")
+}
+
+func (d deck) saveToFile(filename string) {
+	err := ioutil.WriteFile(filename, []byte(d.toString()), 0644)
+	if err != nil {
+		fmt.Println("Error: failed to write file", filename)
+	}
 }
