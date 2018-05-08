@@ -31,3 +31,12 @@ func (d deck) saveToFile(filename string) {
 		fmt.Println("Error: failed to write file", filename)
 	}
 }
+
+func NewDeckFromFile(filename string) deck {
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error: failed to read file", filename)
+	}
+	s := strings.Split(string(content), ",")
+	return deck(s)
+}
