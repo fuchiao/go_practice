@@ -11,6 +11,8 @@ adapted from https://www.udemy.com/go-the-complete-developers-guide (the best go
 adapted from https://www.youtube.com/watch?v=ADT25tuAx4A
 
 * benchmarking
+* profiling (but I have not read this part)
+
 
 ---
 These codes are my re-implementation.
