@@ -19,3 +19,7 @@ BenchmarkStringConcat3-4         1000000              1174 ns/op             262
 BenchmarkStringConcat4-4         3000000               499 ns/op             128 B/op          2 allocs/op
 PASS
 ```
+
+string vs. byte slice
+* string is immutable, every change will lead to a re-allocation
+* byte slice can avoid re-allocation
