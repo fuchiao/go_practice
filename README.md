@@ -6,6 +6,12 @@ adapted from https://www.udemy.com/go-the-complete-developers-guide (the best go
 
 * try tdd with golang
 
+## Fib
+
+adapted from https://www.youtube.com/watch?v=ADT25tuAx4A
+
+* benchmarking
+
 ---
 These codes are my re-implementation.
 
