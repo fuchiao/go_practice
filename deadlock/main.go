@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	c := make(chan int)
+	/* fatal error: all goroutines are asleep - deadlock!
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+	}()
+	for {
+		fmt.Println(<-c)
+	}
+	*/
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		close(c)
+	}()
+	for n := range c {
+		fmt.Println(n)
+	}
+}
