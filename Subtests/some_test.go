@@ -88,7 +88,7 @@ func TestSomeThing(t *testing.T) {
 	defer tfclose()
 }
 
-// network
+// not have to mock net.conn, create a real connection
 func testConn(t *testing.T, msg []byte) net.Conn {
 	t.Helper()
 	ln, err := net.Listen("tcp", "127.0.0.1:0")
